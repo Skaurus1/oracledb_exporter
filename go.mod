@@ -1,4 +1,4 @@
-module oracle
+module aqwatcher
 
 go 1.16
 
