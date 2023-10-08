@@ -13,18 +13,10 @@ https://www.oracle.com/cis/database/technologies/instant-client/downloads.html
 Requires environment variables:
 
 ListenPort for prometheus endpoint
-
 SelectTimeout from Oracle DB
-
 OracleHost
-
 OraclePort
-
 OracleSystemName
-
 OracleUser
-
 OraclePassword
-
 OracleTableName
-
