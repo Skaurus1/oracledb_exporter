@@ -4,18 +4,19 @@ import (
 	"database/sql"
 	"time"
 	"flag"
-    "os"
-    "strconv"
+	"os"
+	"strconv"
 	"log"
 
 	_ "github.com/godror/godror"
 
-    "net/http"
+	"net/http"
 	"github.com/prometheus/client_golang/prometheus"
-    "github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 func connect (connectionString string) (*sql.DB) {
+
 	db, err := sql.Open("godror", connectionString)
 	if err != nil {
 		log.Fatal(err)
@@ -44,6 +45,7 @@ func rowsCount (db *sql.DB, tablename string) (float64) {
 }
 
 func getenvStr(key string) (string) {
+
     v := os.Getenv(key)
     if v == "" {
         log.Fatalf("getenv: Environment variable '%s' is empty", key)
@@ -52,6 +54,7 @@ func getenvStr(key string) (string) {
 }
 
 func getenvInt(key string) (int) {
+
     s := getenvStr(key)
 
     v, err := strconv.Atoi(s)
@@ -62,6 +65,7 @@ func getenvInt(key string) (int) {
 }
 
 func main() {
+	
 	listenPort := getenvStr("ListenPort")
 	selectTimeout := getenvInt("SelectTimeout")
 	oracleHost := getenvStr("OracleHost")
