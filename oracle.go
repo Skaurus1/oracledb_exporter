@@ -80,20 +80,20 @@ func main() {
 	addr := flag.String("listen-address", "0.0.0.0:" + listenPort,
  	 "The address to listen on for HTTP requests.")
 
-	size := prometheus.NewGauge(
+	count := prometheus.NewGauge(
 		prometheus.GaugeOpts{
 			Namespace: "oracle",
 			Name:      "table_rows",
 			Help:      "Number of rows in oracle table",
 		})
-	prometheus.MustRegister(size)
+	prometheus.MustRegister(count)
 
 	db := connect(connectionString)
 	defer db.Close()
 	
 	go func() {
 		for {
-			size.Set(rowsCount(db, oracleTableName))
+			count.Set(rowsCount(db, oracleTableName))
 			time.Sleep(time.Duration(selectTimeout) * time.Second)
 		}
 	  }()
