@@ -20,4 +20,3 @@ OracleSystemName
 OracleUser
 OraclePassword
 OracleTableName
-
