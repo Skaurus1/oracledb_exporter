@@ -76,7 +76,7 @@ func main() {
 	oraclePassword := getenvStr("OraclePassword")
 	oracleTableName := getenvStr("OracleTableName")
 
-	connectionString := fmt.Sprintf("user=%s  password=%s connectString=%s:%s/%s", oracleUser, oraclePassword, oracleHost, oraclePort, oracleSystemName)  
+	connectionString := fmt.Sprintf("user=%s password=%s connectString=%s:%s/%s", oracleUser, oraclePassword, oracleHost, oraclePort, oracleSystemName)  
 
 	addr := flag.String("listen-address", "0.0.0.0:" + listenPort,
  	 "The address to listen on for HTTP requests.")
