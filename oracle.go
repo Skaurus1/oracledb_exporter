@@ -46,26 +46,26 @@ func rowsCount (db *sql.DB, tablename string) (float64) {
 
 func getenvStr(key string) (string) {
 
-    v := os.Getenv(key)
-    if v == "" {
-        log.Fatalf("getenv: Environment variable '%s' is empty", key)
-    }
-    return v
+	v := os.Getenv(key)
+	if v == "" {
+		log.Fatalf("getenv: Environment variable '%s' is empty", key)
+	}
+	return v
 }
 
 func getenvInt(key string) (int) {
 
-    s := getenvStr(key)
+	s := getenvStr(key)
 
-    v, err := strconv.Atoi(s)
-    if err != nil {
-        log.Fatal(err)
-    }
-    return v
+	v, err := strconv.Atoi(s)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return v
 }
 
 func main() {
-	
+
 	listenPort := getenvStr("ListenPort")
 	selectTimeout := getenvInt("SelectTimeout")
 	oracleHost := getenvStr("OracleHost")
