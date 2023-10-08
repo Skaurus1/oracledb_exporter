@@ -1,4 +1,4 @@
-package main
+package oracle
 
 import (
 	"database/sql"
@@ -7,6 +7,7 @@ import (
 	"os"
 	"strconv"
 	"log"
+	"fmt"
 
 	_ "github.com/godror/godror"
 
@@ -75,7 +76,7 @@ func main() {
 	oraclePassword := getenvStr("OraclePassword")
 	oracleTableName := getenvStr("OracleTableName")
 
-	connectionString := "user=" + oracleUser + " " + "password=" + oraclePassword + " " + "connectString=" + oracleHost + ":" + oraclePort + "/" + oracleSystemName
+	connectionString := fmt.Sprintf("user=%s  password=%s connectString=%s:%s/%s", oracleUser, oraclePassword, oracleHost, oraclePort, oracleSystemName)  
 
 	addr := flag.String("listen-address", "0.0.0.0:" + listenPort,
  	 "The address to listen on for HTTP requests.")
